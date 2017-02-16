@@ -2,11 +2,13 @@ package com.app.web.vo;
 
 import java.util.List;
 
+import com.app.web.bo.Vendor;
+
 public class RegionDetailsVO {
 
 	private String regionName;
 	private String regionId;
-	private List<String> vendorList;
+	private List<Vendor> vendors;
 	
 	/**
 	 * @return the regionName
@@ -32,17 +34,18 @@ public class RegionDetailsVO {
 	public void setRegionId(String regionId) {
 		this.regionId = regionId;
 	}
+	
 	/**
-	 * @return the vendorList
+	 * @return the vendors
 	 */
-	public List<String> getVendorList() {
-		return vendorList;
+	public List<Vendor> getVendors() {
+		return vendors;
 	}
 	/**
-	 * @param vendorList the vendorList to set
+	 * @param vendors the vendors to set
 	 */
-	public void setVendorList(List<String> vendorList) {
-		this.vendorList = vendorList;
+	public void setVendors(List<Vendor> vendors) {
+		this.vendors = vendors;
 	}
 	
 }
