@@ -6,15 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import com.app.web.bo.Vendor;
 import com.app.web.vo.RegionDetailsVO;
+import com.app.web.vo.VendorVO;
 
 @Component
 public class RestRequestManager {
@@ -48,6 +49,10 @@ public class RestRequestManager {
 		return regionDetailsVO;
 	}
 	
-	
+	public Response createVendor(VendorVO vendorData){
+		
+		
+		return null;
+	}
 	
 }
