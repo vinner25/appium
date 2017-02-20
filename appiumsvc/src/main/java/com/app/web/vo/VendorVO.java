@@ -3,11 +3,19 @@ package com.app.web.vo;
 import java.io.Serializable;
 
 public class VendorVO implements Serializable{
+	/**
+	 * 
+	 */
+	private int id;
+	private static final long serialVersionUID = 1L;
 	private String vendorName;
 	private String vendorPAN;
 	private String city;
 	private int pickUpCounts;
 	private boolean isPickUpAvailable;
+	private String emailId;
+	private int cityId;
+	
 	public String getVendorName() {
 		return vendorName;
 	}
@@ -37,6 +45,24 @@ public class VendorVO implements Serializable{
 	}
 	public void setPickUpAvailable(boolean isPickUpAvailable) {
 		this.isPickUpAvailable = isPickUpAvailable;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public int getCityId() {
+		return cityId;
+	}
+	public void setCityId(int cityId) {
+		this.cityId = cityId;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

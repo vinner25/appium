@@ -2,14 +2,14 @@ package com.app.mgr;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ws.rs.core.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -49,10 +49,18 @@ public class RestRequestManager {
 		return regionDetailsVO;
 	}
 	
-	public Response createVendor(VendorVO vendorData){
-		
-		
-		return null;
+	public boolean createVendor(VendorVO vendorData){
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("name", vendorData.getVendorName(), Types.VARCHAR);
+		paramSource.addValue("pan", vendorData.getVendorPAN(), Types.VARCHAR);
+		paramSource.addValue("city", vendorData.getCity(), Types.VARCHAR);
+		paramSource.addValue("pickcount", vendorData.getPickUpCounts(), Types.INTEGER);
+		paramSource.addValue("pickavail", vendorData.isPickUpAvailable(), Types.BOOLEAN);
+		paramSource.addValue("emailid", vendorData.getEmailId(), Types.VARCHAR);
+		paramSource.addValue("cityid", vendorData.getCityId(), Types.INTEGER);
+		String sql = "insert into cleansmiles.vendordata(name,pan,city,pickcount,pickavail,emailid,cityid) values(:name,:pan,:city,:pickcount,:pickavail,:emailid,:cityid)";
+		int update = namedParameterJdbcTemplate.update(sql, paramSource);
+		return update==1?true:false;
 	}
 	
 }
